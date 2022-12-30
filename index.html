@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3{
+         color: red;
+        }
+    </style>
+</head>
+<body>
+   <h3>1.Explain Local Scope, Block Scope, Functional Scope and Scope Chain in javascript	</h3>
+   <p>in js we have 3types of scoops</p>
+   <li>1.global scope:variables which are declared at the top of the program or outside of a function is known as global scope</li>
+   <li>2.local /function scope:variables which are assigned inside the function is known as local/function variables</li>
+   <li>3.global scope:variables assigned using let & const are block {}can be accesed within that block .</li>
+   <pre>
+    <!-- global scope -->
+    var glo=10;
+    function glob(){
+        console.log(glo)
+    }
+    glob()
+   </pre>
+   <pre>
+    <!-- local/function scopes -->
+    function add(){
+        var loc=135;
+        console.log(loc)
+    }
+    <!-- //block scope -->
+    {
+        let abc=123:
+        console.log(abc)
+    }
+
+   </pre>
+   
+   <h3>2.What is difference between null and undefined ?</h3>
+   <p>null=>the absence of the value ,null is an a object && wherevers the undefined means the value doesnt exits. undefined is a type</p>
+   <pre>
+    var undefined;
+    console.log(undefined);
+    var abcd=null;
+    console.log(null)
+   </pre>
+   <h3>3.What is an event loop and call stack</h3>
+   <p>Event Loop & call stack: A call stack is mechanism for an intrepreter to keep track of its place in ascript to call multiple functions-what function is currently running and what to be called within that function.<br>The Event loop is constantly running process that monitors both are callback queue and call stack.All the web apis functions like setTimeout ,settimeInterval ,fetch calls etc..will not be directly executed inside the execution context,Firstly,they will be moved to the callback queue and then the moment call stack gets empty these functions will be pushed to call stck from call back queue by event loop.If the call stack is not empty event loop waits until it is empty and places the next function from callback queue to the callstack.</p>
+   <h3>4.What are promises and why do we need them?</h3>
+   <p>
+    Promises are used to handle the asynchrous operations in Javascipt.They are easy to manage when dealing with the multiple asynchronous operations compare to callback hells and events.Multiple callback functions would create callback hell that leads to unmanageble code and it is also not easy for any user to handle multiple callbacks at the same time.So, promises are the ideal  choice for handling asynchronous operations in simplest manner.A promise is in one of these states.They are :<li>Pending State:Intial state,neither fulfilled nor rejected.<li>fulfilled:The operation is fulfilled</li><li>Rejected:The operation is failed.<br>Benifits Of Promises:<li>Code Readability.</li><li>Better handling of asynchrous operations</li><li> Better flow of control in asyncronous logic.</li>
+</p>
+<pre>
+    var promise = new Promise(function(resolve,reject){
+        const x="promise1";
+        const y="promise2";
+        if(x===y){
+            resolve();
+        }
+        else{
+            reject();
+        }
+    })
+    promise.then(()=>{console.log("Success")}).catch(()=>{console.log("Failed")})
+</pre>
+   <h3>5.What is promise chaining</h3>
+   <p>the process of excuting the scequence of asynchronous tasks one after another using promises</p>
+   new Promise(function(resolve,reject){
+    setTimeout(()=>{resolve(1)},1000);
+}).then(function(result){
+    console.log(result);
+    return result * 2;
+}).then(function(result){
+    console.log(result);
+    return result * 4;
+})
+.then(function(result){
+    console.log(result);
+    return result * 6;
+})
+   <h3>6.What are pure functions?</h3>
+   <p>It is a function that would give some or consistent output if some input is being passed. It is othing but a well defined function.</p>
+   <pre>
+       function add(a,b) {
+           console.log(a+b);
+       }
+       add(6,4);
+       add(10,10);
+   </pre>
+    <script src="./main.js"></script>
+</body>
+</html>
